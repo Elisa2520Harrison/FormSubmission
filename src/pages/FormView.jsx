@@ -3,20 +3,17 @@ import { useState } from "react";
 export default function FormView() {
 
     const [name, setName] = useState("");
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (name.trim() === "") {
-            setError("Name is required ");
-            setSuccess("");
+            alert("Name is required!");
         } else {
-            setError("");
             console.log("Form submitted");
-            setSuccess("Form submitted successfully !");
+            alert("Form submitted successfully!");
         }
     };
 
@@ -44,24 +41,19 @@ export default function FormView() {
                     type="text"
                     id="Subject"
                     placeholder="What is this regarding?"
-                    className="border border-gray-400 rounded-md w-96 px-3 py-2
+                    className="border border-gray-400 rounded-md w-96 px-3 py-2 mb-4
                    flex focus:outline-none " />
 
-                <label classname="text-lg items-start mt-4 font-normal"
-                htmlFor="Message">Message</label>
+                <label className="text-lg items-start mt-4 font-normal"
+                    htmlFor="Message">Message</label>
 
-                
+                <textarea
+                    type="text"
+                    id="Message"
+                    placeholder="Type your message here..."
+                    className="border border-gray-400 rounded-md mb-4 w-96 px-3 py-3 h-40 
+                 resize-none focus:outline-none" />
 
-
-                {/* Error message */}
-                {error && (
-                    <p className="text-red-500 text-sm">{error}</p>)}
-
-                {/* success message */}
-                {success && (
-                    <p className="text-green-500 text-sm mt-2">
-                        {success}</p>
-                )}
 
                 <button
                     type="submit"
